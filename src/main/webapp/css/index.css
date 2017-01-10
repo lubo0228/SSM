@@ -1,0 +1,57 @@
+@charset: "utf-8";
+
+#body{
+	width: 1200px;
+	margin: 0 auto;
+	padding: 50px 0;
+	font-size: 14px;
+	color: #333;
+}
+#body::after{
+	content: " ";
+	display: block;
+	clear: both;
+	width: 100%;
+	height: 0;
+	visibility: hidden;
+	zoom: 1;
+}
+table{
+	text-align: center;
+}
+table tbody{
+	font-size: 12px;
+}
+table tbody em{
+	color: #888;
+}
+#search_div{
+	margin: 10px 0;
+}
+.left-nav{
+	float: left;
+	width: 200px;
+	border: 1px solid #eee;
+	border-radius: 4px;
+}
+.right-section{
+	float: left;
+	margin-left: 10px;
+	width: 980px;
+	background: rgb(253, 253, 253);
+}
+.box{
+	text-align: center;
+}
+.box .btn{
+	outline: none;
+	border: 0;
+	margin: 0 10px;
+}
+/*内容新增*/
+#con-div{
+	width: 460px;
+	min-height: 200px;
+	border: 1px solid #ccc;
+	font-weight: 100;
+}

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+	<div id="body">
+		<h3 align="center">员工信息管理系统</h3>
+		<div class="left-nav">
+			<ul  id="myTab" class="nav nav-pills nav-stacked">
+				<li><a href="#charge" data-toggle="tab">管理</a></li>
+				<li><a href="#add" data-toggle="tab">新增</a></li>
+				<li><a href="#update" data-toggle="tab" style="display:none;">修改</a></li>
+			</ul>
+		</div>
+		<div class="right-section">
+			<div class="tab-content">
+				<div class="tab-pane fade" id="charge">
+					<div id="search_div">
+						<form class="form-inline" role="form">
+							<label>姓名：</label><input  id="search_name" class="form-control input-sm" type="text" autocomplete="off"/>&nbsp;
+							<label>部门：</label>
+							<select id="search_dept" class="form-control input-sm" name="dept">
+								<optgroup for="dept">
+									<option label="全部"></option>
+									<option>人力资源</option>
+									<option>研发</option>
+									<option>技术</option>
+									<option>财务</option>
+									<option>销售</option>
+								</optgroup>
+							</select>&nbsp;
+							<label>起始：</label>
+							<select id="search_starttime" class="form-control input-sm" name="starttime">
+								<optgroup for="starttime">
+									<option selected = "selected">2010-01-01</option>
+									<option>2011-01-01</option>
+									<option>2012-01-01</option>
+									<option>2013-01-01</option>
+									<option>2014-01-01</option>
+									<option>2015-01-01</option>
+									<option>2016-01-01</option>
+								</optgroup>
+							</select>&nbsp;
+							<label>终止：</label>
+							<select id="search_endtime" class="form-control input-sm" name="endtime">
+								<optgroup for="endtime">
+									<option>2010-12-12</option>
+									<option>2011-12-12</option>
+									<option>2012-12-12</option>
+									<option>2013-12-12</option>
+									<option>2014-12-12</option>
+									<option>2015-12-12</option>
+									<option selected = "selected">2016-12-12</option>
+								</optgroup>
+							</select>&nbsp;
+							<input type="button" value="搜索" id="search_btn" class="btn btn-sm" autocomplete="off"/>
+						</form>
+					</div>
+					<table class="table table-bordered table-hover" align="center">
+						<thead>
+							<tr>
+								<td><input id="select-all" type="checkbox">全选</td>
+								<td>姓名</td>
+								<td>部门</td>
+								<td>入职时间</td>
+								<td>性别</td>
+								<td>电话</td>
+								<td>住址</td>
+								<td>毕业院校</td>
+								<td>专业</td>
+								<td>学位</td>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+					<div class="box">
+						<input class="btn" id="delete" type="button" value="删除"><input class="btn" id="change" type="button" value="修改">
+					</div>
+					<ul class="pagination"></ul>
+				</div>
+				<div class="tab-pane fade" id="add">
+					<form id="add-form" class="form-inline" role="form" action="/StaffInfo/add" method="post">
+						<label for="">姓名：</label><input id="staff_name" class="form-control input-sm" name="name" type="text" autocomplete="off"><br><br>
+						<label for="type">部门：</label><select id="staff_dept" class="form-control input-sm" name="dept">
+							<optgroup for="dept">
+								<option>人力资源</option>
+								<option>研发</option>
+								<option>技术</option>
+								<option>财务</option>
+								<option>销售</option>
+							</optgroup>
+						</select><br><br>
+						<label for="">性别：</label><select id="staff_gender" class="form-control input-sm" name="gender">
+							<optgroup for="gender">
+								<option>男</option>
+								<option>女</option>
+							</optgroup>
+						</select><br><br>
+						<label for="">入职：</label><input id="staff_enter" class="form-control input-sm date datetimepicker" name="enter" type="text" autocomplete="off"><em>&nbsp;*时间格式：2000-01-01</em><br><br>
+						<label for="">电话：</label><input id="staff_phone" class="form-control input-sm" name="phone" type="text" autocomplete="off"><br><br>
+						<label for="">住址：</label><input id="staff_address" class="form-control input-sm" name="address" type="text" autocomplete="off"><br><br>
+						<label for="">院校：</label><input id="staff_graduate" class="form-control input-sm" name="graduate" type="text" autocomplete="off"><br><br>
+						<label for="">专业：</label><input id="staff_major" class="form-control input-sm" name="major" type="text" autocomplete="off"><br><br>
+						<label for="">学位：</label><input id="staff_degree" class="form-control input-sm" name="degree" type="text" autocomplete="off"><br><br>
+						<input id="add-con" class="btn" type="submit" value="添加">
+					</form>
+				</div>
+				<div class="tab-pane fade" id="update">
+					<form id="update-form" class="form-inline" role="form" >
+						<label for="">姓名：</label><input class="staff_name form-control input-sm" name="name" type="text" autocomplete="off"><br><br>
+						<label for="">部门：</label><select class="staff_dept form-control input-sm" name="dept">
+							<optgroup for="dept">
+								<option>人力资源</option>
+								<option>研发</option>
+								<option>技术</option>
+								<option>财务</option>
+								<option>销售</option>
+							</optgroup>
+						</select><br><br>
+						<label for="">性别：</label><select class="staff_gender form-control input-sm" name="gender">
+							<optgroup for="gender">
+								<option>男</option>
+								<option>女</option>
+							</optgroup>
+						</select><br><br>
+						<label for="">入职：</label><input class="staff_enter form-control input-sm date datetimepicker" name="enter" type="text" autocomplete="off"><br><br>
+						<label for="">电话：</label><input class="staff_phone form-control input-sm" name="phone" type="text" autocomplete="off"><br><br>
+						<label for="">住址：</label><input class="staff_address form-control input-sm" name="address" type="text" autocomplete="off"><br><br>
+						<label for="">院校：</label><input class="staff_graduate form-control input-sm" name="graduate" type="text" autocomplete="off"><br><br>
+						<label for="">专业：</label><input class="staff_major form-control input-sm" name="major" type="text" autocomplete="off"><br><br>
+						<label for="">学位：</label><input class="staff_degree form-control input-sm" name="degree" type="text" autocomplete="off"><br><br>
+						<input class="staff_id" type="hidden" name="id" value=""/>
+						<input id="update-con" class="btn" type="button" value="更新">
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$(".datetimepicker").datetimepicker({
+				format: 'yyyy-mm-dd',
+				weekStart: 1,
+		        todayBtn:  1,
+				autoclose: 1,
+				todayHighlight: 1,
+				startView: 2,
+				minView: 2,
+				forceParse: 0
+			})
+		})
+	</script>
+</body>
+</html>
