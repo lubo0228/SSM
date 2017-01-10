@@ -1,2 +1,2 @@
 # test
-An SSM project.
+A SSM project.
